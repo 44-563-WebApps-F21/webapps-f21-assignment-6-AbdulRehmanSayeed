@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pass</title>
+</head>
+<body>
+<h1>Pass phrase by Abdul Rehman Sayeed Mohammed</h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="resolveForm()" value="Get values from form">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+<form>
+    <label for="form2_pass">Enter the secret phrase</label>
+    <input type="password" id="form2_pass" value="let me in">
+<br>
+    <label for="form2_phrase">Enter a phrase</label>
+    <input type="text" id="form2_phrase">
+<br>
+    <input type="button" onclick="processPhrase()" value="Check the phrase">
+</form>
+<div id="result2">If the phrse match</div>
+
+<script> 
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+<script>
+    correct=0;
+    wrong=0;
+    function processPhrase(){
+        console.log("Checking the phrase")
+        sphrase=document.getElementById("form2_pass").value
+        phrase=document.getElementById("form2_phrase").value
+        confirmed=confirm("Do you want to continue with phrase :"+phrase)
+        out=document.getElementById("result2")
+        if(confirmed){
+            if(sphrase==phrase){
+            correct++
+            alert("Access allowed")
+            out.innerHTML="Correct attempt "+correct}
+            else{
+            wrong++
+            alert("Access denied")
+            out.innerHTML="Wrong attempt"+wrong
+            }
+
+        }
+        else
+        out.innerHTML="please confirm"
+    }
+
+</script>
+
+
+</body>
+</html> 
