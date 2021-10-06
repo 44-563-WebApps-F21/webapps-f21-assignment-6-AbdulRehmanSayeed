@@ -2,21 +2,21 @@
 <html>
 <head>
     <title>Pass</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" 
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" 
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  
 </head>
 <body>
 <h1>Pass phrase by Abdul Rehman Sayeed Mohammed</h1>
 <h2>Getting input</h2>
 
-<form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
-
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
-
-    <input type="button" onclick="resolveForm()" value="Get values from form">
-</form>
 
 
 <p id="result">This text will be replaced </p>
@@ -27,7 +27,7 @@
     <label for="form2_phrase">Enter a phrase</label>
     <input type="text" id="form2_phrase">
 <br>
-    <input type="button" onclick="processPhrase()" value="Check the phrase">
+    <input type="button" class="btn btn-dark" onclick="processPhrase()" value="Check the phrase">
 </form>
 <div id="result2">If the phrse match</div>
 
@@ -61,8 +61,16 @@
         }
         else
         out.innerHTML="please confirm"
+        while (wrong>=4) {
+            document.getElementById("buy").onclick = alt();
+        }
+        
+        
     }
-
+function alt() {
+    alert("Account locked")
+    
+}
 
     var usingImage = 1;
 
