@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cars</title>
+    </head>
+ 
+<body>
+<h1>Abdul Rehman Sayeed Mohammed orders a car</h1>
+<h2>Getting input</h2>
+
+
+
+<form>
+    <div >
+    <input type="checkbox" id="electric" name="electric" value="electric" >
+    <label class="form-check-label" for="electric">electric</label></br>
+    </div>
+
+    <div >
+    <input type="checkbox" id="ac" name="ac" value="ac">
+    <label for="ac">ac</label></br>
+    </div>
+    
+    <div>
+    <input type="checkbox" id="gps" name="gps" value="gps" >
+    <label class="form-check-label" for="gps">gps</label></br>
+    </div>
+
+</br>
+    <input type="button" class="btn btn-primary"  onclick="orderCar()" value="Order a car">
+  </form>
+</br>
+  <form>
+    <div>
+    <label for="property">Enter a property</label></br>
+    <input type ="text" id="property" name="property" value="color"> 
+    </br>
+    
+    <label for="value">Enter a value</label></br>
+    <input type ="text" class="form-control" id="value" name="value">
+    </br>
+</div>
+
+    <input type="button"  class="btn btn-primary" onclick="updatecar()" value="Update the car">
+
+</form>
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+var my_car={};
+function orderCar(){
+    my_car={};
+    
+    if(document.getElementById("electric").checked){
+        my_car["electric"]=true;
+    }else{
+        my_car["electric"]=false;
+    }
+     if(document.getElementById("ac").checked){
+        my_car["ac"]=true;
+    }else{
+        my_car["ac"]=false;
+    }
+    if(document.getElementById("gps").checked){
+        my_car["gps"]=true;
+    }else{
+        my_car["gps"]=false;
+    }
+    
+    out =document.getElementById("result") 
+    my_car= JSON.stringify(my_car);
+    out.innerHTML=my_car
+    my_car= JSON.parse(my_car)
+}
+function updatecar(){
+    var pro=document.getElementById("property").value;
+    var values=document.getElementById("value").value;
+    my_car[pro]=values;
+
+    out = document.getElementById("result")
+    my_car= JSON.stringify(my_car);
+    out.innerHTML=my_car
+    my_car= JSON.parse(my_car)
+
+}
+
+    
+</script>
+
+</body>
+</html> 
