@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Pass</title>
+    
 </head>
 <body>
 <h1>Pass phrase by Abdul Rehman Sayeed Mohammed</h1>
@@ -30,22 +31,13 @@
 </form>
 <div id="result2">If the phrse match</div>
 
-<script> 
+<div class="container">
+    <img id="animalImage" src="owl.png" alt="owl image" width="200" height="200" onclick="newImage()">
+</div>
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
-}
-</script>
+
+
+
 <script>
     correct=0;
     wrong=0;
@@ -71,7 +63,28 @@ function resolveForm (){
         out.innerHTML="please confirm"
     }
 
+
+    var usingImage = 1;
+
+    function newImage(){
+        switch(usingImage){
+            case 1: 
+                usingImage++;
+                document.getElementById("animalImage").src = "hare.jpg"
+                break;
+            case 2:
+                usingImage++;
+                document.getElementById("animalImage").src = "monkey.jpg"
+                break;
+            case 3:
+                usingImage=1;
+                document.getElementById("animalImage").src = "owl.png"
+                break;
+        }
+    }
+    
 </script>
+
 
 
 </body>

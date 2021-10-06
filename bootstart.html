@@ -14,7 +14,38 @@
 
 </head>
 <body>
-
+  <script>
+  var usingimg=1;
+  function newimage(){        
+      switch(usingimg){
+          case 1:
+              usingimg=2;                
+              document.getElementById('myImage').scr='C:\Users\S545401\Documents\GitHub\webapps-f21-assignment-6-AbdulRehmanSayeed\owl.png';     
+              console.log("case1");                                    
+              break;
+          case 2:
+          usingimg=3;    
+          document.getElementById('myImage').scr="C:\Users\S545401\Documents\GitHub\webapps-f21-assignment-6-AbdulRehmanSayeed\hare.jpgs";   
+          console.log("case2");                          
+              break;
+          case 3:
+          usingimg=1;    
+          document.getElementById("myImage").scr="monkey.jpg"       
+          console.log("case3");                  
+              break;
+          default:
+              usingimg=1;
+              document.getElementById("myImage").scr="owl.png"         
+              break;            
+      }    
+  }
+</script>
+<div class="container">
+  <img src="owl.png" alt="owl" id="myImage" onclick="newimage()" height="200" width="200" >
+  <img src="monkey.jpg">
+  <img src="hare.jpg">
+  
+</div>
 
 
 </body>
