@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+    <head><title>Arithmetic</title></head>
  
 <body>
-
+<h1>Abdul Rehman Sayeed Mohammed Computes</h1>
 <h2>Getting input</h2>
 
 <form>
@@ -18,6 +19,34 @@
 
 
 <p id="result">This text will be replaced </p>
+<form>
+    <div class="form-group">
+    <label for="first">Enter a base</label>
+    <input type ="number" class="form-control" id="first" name="first" value=10> <br>
+
+    <label for="second">Enter a exponent</label>
+    <input type ="number" class="form-control" id="second" name="second" value=2>
+     <br>
+    </div>
+    <input type="button" class="btn btn-primary" onclick="powers()" value="Compute">
+</form>
+<div id="result1"></div>
+<form>
+    
+    <input type="radio" id="plus" name="cal" onclick="processRadio()" value="plus">
+    <label for="plus">+</label><br>
+    
+    <input type="radio" id="minus" name="cal" onclick="processRadio()" value="minus">
+    <label for="minus">-</label><br>
+
+    <input type="radio" id="times" name="cal" onclick="processRadio()" value="times">
+    <label for="times">*</label><br>
+    
+    <input type="radio" id="divide" name="cal" onclick="processRadio()" value="divide">
+    <label for="divide">/</label><br>
+
+    </form>
+    <p id="result2">The result will be displayed here</p>
 
 <script> 
 
@@ -34,37 +63,54 @@ function resolveForm (){
         out.innerHTML = "Values were not confirmed"
     }
 }
+function powers(){
+bno = document.getElementById("first").value
+eno = document.getElementById("second").value
+out = document.getElementById("result1")
+var result = new String();
+var res = new Array;
+for(i=1;i<=eno;i++){
+    res[i] = Math.pow(bno,i);
+    result=result.concat(res[i])
+    result+=' '
+}
+out.innerHTML ="Powers of base are :" + result +" ";  
+}
+function processRadio() {
+    bno = document.getElementById("first").value
+    eno = document.getElementById("second").value
 
-var usingimg=1;
-    function newimage(){        
-        switch(usingimg){
-            case 1:
-                usingimg=2;                
-                document.getElementById('myImage').scr='C:\Users\S545401\Documents\GitHub\webapps-f21-assignment-6-AbdulRehmanSayeed\owl.png';     
-                console.log("case1");                                    
-                break;
-            case 2:
-            usingimg=3;    
-            document.getElementById('myImage').scr="C:\Users\S545401\Documents\GitHub\webapps-f21-assignment-6-AbdulRehmanSayeed\hare.jpgs";   
-            console.log("case2");                          
-                break;
-            case 3:
-            usingimg=1;    
-            document.getElementById("myImage").scr="monkey.jpg"       
-            console.log("case3");                  
-                break;
-            default:
-                usingimg=1;
-                document.getElementById("myImage").scr="owl.png"         
-                break;            
-        }    
-    }
-</script>
-<div class="container">
-    <img src="owl.png" alt="owl" id="myImage" onclick="newimage()" height="200" width="200" >
-    <img src="monkey.jpg">
-    <img src="hare.jpg">
+    plus = document.getElementById("plus").checked
+    minus = document.getElementById("minus").checked
+    times = document.getElementById("times").checked
+    divide = document.getElementById("divide").checked
+    out = document.getElementById("result2")
+        if (plus) {
+                
+                out.innerHTML = (Number)(bno) + Number(eno)
+            }
+            if (minus) {
+                
+                out.innerHTML = bno - eno
+            }
+            if (times) {
+                
+                out.innerHTML = bno * eno
+            }
+            if (divide) {
+                
+                out.innerHTML = bno / eno
+            }
+
+
+}
+
+
+
     
+</script>
+
+
 </div>
 
 </body>
